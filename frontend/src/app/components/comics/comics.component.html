@@ -1,0 +1,8 @@
+<p>comics works!</p>
+
+<div class="row">
+  <div class="col-sm-4" *ngFor="let comic of comics">
+    <img src="{{ comic.cover }}" width="120px" alt="" srcset="" />
+    {{ comic.name }}
+  </div>
+</div>
