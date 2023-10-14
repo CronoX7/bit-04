@@ -1,0 +1,107 @@
+
+<main class="container my-5">
+    <form #comicForm="ngForm" (ngSubmit)="addComic(comicForm); comicForm.resetForm()">
+   
+      <div class="mb-3">
+        <label for="pubHouse" class="form-label">Casa editorial</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pubHouse"
+          name="pubHouse"
+          [(ngModel)]="homeService.selectedComic.pubHouse"
+        /> 
+      </div>
+  
+      <div class="mb-3">
+          <label for="name" class="form-label">Nombre del comic</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            [(ngModel)]="homeService.selectedComic.name"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="mainCharacter" class="form-label">Personaje Principal</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mainCharacter"
+            name="mainCharacter"
+            [(ngModel)]="homeService.selectedComic.mainCharacter"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="storyArc" class="form-label">Arco de historia</label>
+          <input
+            type="text"
+            class="form-control"
+            id="storyArc"
+            name="storyArc"
+            [(ngModel)]="homeService.selectedComic.storyArc"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="numPages" class="form-label">Número de páginas</label>
+          <input
+            type="text"
+            class="form-control"
+            id="numPages"
+            name="numPages"
+            [(ngModel)]="homeService.selectedComic.numPages"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="cover" class="form-label">Pasta</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cover"
+            name="cover"
+            [(ngModel)]="homeService.selectedComic.cover"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="format" class="form-label">Formato</label>
+          <input
+            type="text"
+            class="form-control"
+            id="format"
+            name="format"
+            [(ngModel)]="homeService.selectedComic.format"
+          /> 
+        </div>
+      
+      <div class="mb-3">
+          <label for="price" class="form-label">Precio</label>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            name="price"
+            [(ngModel)]="homeService.selectedComic.price"
+          /> 
+        </div>
+
+        <div class="mb-3">
+          <label for="imgComic" class="form-label">URL imagen Comic</label>
+          <input
+            type="text"
+            class="form-control"
+            id="imgComic"
+            name="imgComic"
+            [(ngModel)]="homeService.selectedComic.imgComic"
+          /> 
+        </div>
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </main>
+
+  <!-- {{homeService.selectedComic | json}} -->

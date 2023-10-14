@@ -1,7 +1,7 @@
-<header>Header content</header>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Dungeon Comics</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -19,17 +19,14 @@
             <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="addComic">Add comic</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="comics">Comics DB</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+            <a class="nav-link" href="#">Find Comic</a>
+          </li>        
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <ng-container *ngIf="loginService.isLogged(); else logged">

@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { TopComponent } from './components/top/top.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddComicComponent } from './components/add-comic/add-comic.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ComicsComponent,
     PageNotFoundComponent,
     TopComponent,
-    BottomComponent
+    BottomComponent,
+    AddComicComponent
   ],
   imports: [
     BrowserModule,

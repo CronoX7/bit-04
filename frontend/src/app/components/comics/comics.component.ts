@@ -9,9 +9,26 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class ComicsComponent implements OnInit{
   comics: Comic[]=[];
+  comicSelected: Comic ={
+    pubHouse: "",
+    name: "",
+    mainCharacter: "",
+    storyArc: "",
+    numPages: 0,
+    cover: "",
+    format: "",
+    price: 0,
+    imgComic: "",
+  }
+  showModalEdit = false;
   constructor (public homeService: HomeService){}
   ngOnInit(): void {
     this.getAllComics();
+  }
+
+  modal(comic:any){
+    this.comicSelected = comic; 
+    this.showModalEdit = true;
   }
 
   getAllComics(){
@@ -23,8 +40,32 @@ export class ComicsComponent implements OnInit{
       },
       (err)=>{
         console.log('err', err);
+      }      
+    );
+  }
+  
+  removeComic(id:string | any){
+    console.log(id);  
+    this.homeService.deleteComic(id).subscribe(
+      (res)=>{
+        this.getAllComics();
+      },
+      (err) => {
+        console.log('err', err);
       }
     );
+
+  }
+
+  updateComic(){
+    this.homeService.updateComic(this.homeService.selectedComic).subscribe(
+      (res)=>{
+        this.getAllComics();
+      },
+      (err) => {
+        console.log('err', err);
+      }
+    )
   }
 
 

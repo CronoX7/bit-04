@@ -12,6 +12,7 @@ const ComicsController = {
         cover,
         format,
         price,
+        imgComic,
       } = request.body;
       const newComics = new ComicModel({
         pubHouse,
@@ -22,6 +23,7 @@ const ComicsController = {
         cover,
         format,
         price,
+        imgComic,
       });
       const createdComic = await newComics.save();
       if (createdComic) {

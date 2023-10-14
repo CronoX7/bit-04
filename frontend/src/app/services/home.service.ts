@@ -22,7 +22,8 @@ export class HomeService {
     numPages: 0,
     cover: "",
     format: "",
-    price: 0
+    price: 0,
+    imgComic: "",
   }
 
   createComic(comic: Comic){
@@ -36,9 +37,21 @@ export class HomeService {
 
   }
 
+  readComics(){
+    return this.http.get<any> (this.urlBackend);
+  }
+  
 
-  updateComic(){}
-  dleteComic(){}
+  updateComic(comic:any){
+    const newUrl = this.urlBackend+"/"+comic._id
+    return this.http.put(newUrl, comic);
+
+  }
+
+
+  deleteComic(id:string){
+    return this.http.delete(`${this.urlBackend}/${id}`)
+  }
   
 }
 

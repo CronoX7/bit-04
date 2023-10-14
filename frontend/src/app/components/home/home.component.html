@@ -1,9 +1,34 @@
-<!--<app-top></app-top>
 
-<app-bottom></app-bottom> -->
+<link rel="stylesheet" href="/home.component.css">
+
+
+<!--<app-bottom></app-bottom>-->
 
 <main class="container my-5">
-  <form #comicForm="ngForm" (ngSubmit)="addComic(comicForm)">
+
+  <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="assets/img/slide_1.jpg" class="d-block rounded mx-auto" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="assets/img/slide4.jpg" class="d-block img-fluid" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/slide3.jpg" class="d-block img-fluid" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+  <!-- <form #comicForm="ngForm" (ngSubmit)="handleSubmitComic(comicForm)">
  
     <div class="mb-3">
       <label for="pubHouse" class="form-label">Casa editorial</label>
@@ -92,7 +117,45 @@
           [(ngModel)]="homeService.selectedComic.price"
         /> 
       </div>
+
+      <div class="mb-3">
+        <label for="imgComic" class="form-label">URL imagen Comic</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imgComic"
+          name="imgComic"
+          [(ngModel)]="homeService.selectedComic.imgComic"
+        /> 
+      </div>
     
-    <button type="submit" class="btn btn-primary">Crear</button>
+      <ng-container *ngIf="homeService.selectedComic._id; else create">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </ng-container>
+      
+      <ng-template #create>
+        <button type="submit" class="btn btn-primary">Crear</button>
+      </ng-template>
+
+
   </form>
+  <ul *ngFor="let comic of homeService.comics">
+    <li>        
+        <p>{{ comic.name }}</p>
+        <p>{{ comic.pubHouse}}</p>
+        <p>{{ comic.mainCharacter}}</p>
+        <p>{{ comic.storyArc}}</p>
+        <p>{{ comic.numPages}}</p>
+        <p>{{ comic.cover}}</p>
+        <p>{{ comic.format}}</p>
+        <p>{{ comic.price}} </p>
+        <div class="d-flex gap-4">
+          
+          <button type="button" (click)="removeComic(comic._id)">Delete</button>
+        </div>
+
+    </li>
+  </ul> -->
+
+
 </main>

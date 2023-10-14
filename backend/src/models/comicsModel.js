@@ -10,6 +10,7 @@ const comicSchema = new Schema(
     cover: { type: String, required: true },
     format: { type: String, required: true },
     price: { type: Number, required: true },
+    imgComic: { type: String, required: true },
   },
   { timestamps: true, versionKey: false }
 );

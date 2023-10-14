@@ -10,7 +10,10 @@ import { HomeService } from "../../services/home.service";
 
 export class HomeComponent {
   constructor(public homeService: HomeService){}
-  //data= {name: ''};
+  
+  ngOnInit(): void{ // Hace que se ejecuten todas las tareas cuando inicie.
+    this.getAllComics();
+  }
 
 addComic(form: NgForm){
   this.homeService.createComic(form.value).subscribe (//Realiza la función desde el homeServices
@@ -20,8 +23,33 @@ addComic(form: NgForm){
   (err)=> {
     console.log('err', err);
   });
-  //console.log(form.value);
+  console.log(form.value);
 }
 
+getAllComics(){
+  this.homeService.readComics().subscribe(
+    (res) =>{
+      this.homeService.comics = res.allComics;
+    },
+    (err) => {
+      console.log('err', err);
+    }
+  )
+}
+
+removeComic(id:string | any){
+  this.homeService.deleteComic(id).subscribe(
+    (res)=>{
+      this.getAllComics();
+    },
+    (err) => {
+      console.log('err', err);
+    }
+  );
+}
+
+handleSubmitComic(form: NgForm){
+
+}
 
 }
