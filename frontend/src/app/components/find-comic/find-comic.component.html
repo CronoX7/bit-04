@@ -1,3 +1,4 @@
+<div class="">
 <form #comicForm="ngForm" >
    
     <div class=" bg-body-secondary w-50 mx-auto p-2 my-5">
@@ -11,10 +12,14 @@
       /> 
       <button  type="submit" class="btn btn-primary my-2" (click)="findComic()">Buscar</button>
     </div>
-    <div class=" mx-auto p-2 my-5">
-      
-    </div>
-</form>
 
-<app-comics [comicData]="oneComic"> </app-comics>
+</form>
+</div>
+
+
+
+  <app-comics [comicData]="oneComic"> </app-comics>
+
+
+
 

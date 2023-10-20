@@ -1,8 +1,11 @@
+<link rel="stylesheet" href="comics.component.css">
 
-<div class="container d-flex justify-content-center align-top">
-  <div class="row">
+<main class="">
+<div class="justify-content-center align-top">
+  <div class="row" style="margin-left: 0; margin-right: 0;">
     <div
-      class="col-sm-4 mr-2 ml-2 d-flex justify-content-center p-3"
+      class="col-sm-6 col-md-4 d-flex justify-content-around p-5"
+      
       *ngFor="let comic of comics"
     >
     <!-- Se define en el padre el evento que permite traer información del hijo -->
@@ -94,3 +97,4 @@
     </div>
   </div>
 </div>
+</main>

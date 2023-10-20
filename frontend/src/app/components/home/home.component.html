@@ -1,161 +1,134 @@
-
-<link rel="stylesheet" href="/home.component.css">
-
+<link rel="stylesheet" href="/home.component.css" />
 
 <!--<app-bottom></app-bottom>-->
-
-<main class="container my-5">
-
-  <div id="carouselExampleInterval" class="carousel carousel-dark slide " data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="assets/img/slide_1.jpg" class="d-block rounded mx-auto" alt="...">
+<div class="background">
+  <main class="container p-2 slide">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
       </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="assets/img/slide4.jpg" class="d-block rounded mx-auto" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/slide3.jpg" class="d-block rounded mx-auto" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  
-  <!-- <form #comicForm="ngForm" (ngSubmit)="handleSubmitComic(comicForm)">
- 
-    <div class="mb-3">
-      <label for="pubHouse" class="form-label">Casa editorial</label>
-      <input
-        type="text"
-        class="form-control"
-        id="pubHouse"
-        name="pubHouse"
-        [(ngModel)]="homeService.selectedComic.pubHouse"
-      /> 
-    </div>
-
-    <div class="mb-3">
-        <label for="name" class="form-label">Nombre del comic</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          name="name"
-          [(ngModel)]="homeService.selectedComic.name"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="mainCharacter" class="form-label">Personaje Principal</label>
-        <input
-          type="text"
-          class="form-control"
-          id="mainCharacter"
-          name="mainCharacter"
-          [(ngModel)]="homeService.selectedComic.mainCharacter"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="storyArc" class="form-label">Arco de historia</label>
-        <input
-          type="text"
-          class="form-control"
-          id="storyArc"
-          name="storyArc"
-          [(ngModel)]="homeService.selectedComic.storyArc"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="numPages" class="form-label">Número de páginas</label>
-        <input
-          type="text"
-          class="form-control"
-          id="numPages"
-          name="numPages"
-          [(ngModel)]="homeService.selectedComic.numPages"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="cover" class="form-label">Pasta</label>
-        <input
-          type="text"
-          class="form-control"
-          id="cover"
-          name="cover"
-          [(ngModel)]="homeService.selectedComic.cover"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="format" class="form-label">Formato</label>
-        <input
-          type="text"
-          class="form-control"
-          id="format"
-          name="format"
-          [(ngModel)]="homeService.selectedComic.format"
-        /> 
-      </div>
-    
-    <div class="mb-3">
-        <label for="price" class="form-label">Precio</label>
-        <input
-          type="text"
-          class="form-control"
-          id="price"
-          name="price"
-          [(ngModel)]="homeService.selectedComic.price"
-        /> 
-      </div>
-
-      <div class="mb-3">
-        <label for="imgComic" class="form-label">URL imagen Comic</label>
-        <input
-          type="text"
-          class="form-control"
-          id="imgComic"
-          name="imgComic"
-          [(ngModel)]="homeService.selectedComic.imgComic"
-        /> 
-      </div>
-    
-      <ng-container *ngIf="homeService.selectedComic._id; else create">
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-      </ng-container>
-      
-      <ng-template #create>
-        <button type="submit" class="btn btn-primary">Crear</button>
-      </ng-template>
-
-
-  </form>
-  <ul *ngFor="let comic of homeService.comics">
-    <li>        
-        <p>{{ comic.name }}</p>
-        <p>{{ comic.pubHouse}}</p>
-        <p>{{ comic.mainCharacter}}</p>
-        <p>{{ comic.storyArc}}</p>
-        <p>{{ comic.numPages}}</p>
-        <p>{{ comic.cover}}</p>
-        <p>{{ comic.format}}</p>
-        <p>{{ comic.price}} </p>
-        <div class="d-flex gap-4">
-          
-          <button type="button" (click)="removeComic(comic._id)">Delete</button>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img
+            src="assets/img/slide5.png"
+            class="d-block rounded mx-auto"
+            alt="..."
+          />
+          <div
+            class="carousel-caption d-none d-md-block alpha mx-auto p-1 w-50"
+          >
+        
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img
+            src="assets/img/slide_1.jpg"
+            class="d-block rounded mx-auto"
+            alt="..."
+          />
+          <div
+            class="carousel-caption d-none d-md-block bg-body-secondary alpha mx-auto p-1 w-50"
+          >
+            <h5>¡DUNGEON COMICS!</h5>
+            <p>Crea tu propio catálogo de comics</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="assets/img/slide4.jpg"
+            class="d-block rounded mx-auto"
+            alt="..."
+          />
+          <div
+            class="carousel-caption d-none d-md-block bg-body-secondary alpha mx-auto p-1 w-50"
+          >
+            <h5>¡Organiza tu catálogo digital!</h5>
+            <p>Para que no olvides el tesoro de colección que tienes.</p>
+          </div>
         </div>
 
-    </li>
-  </ul> -->
+        <div class="carousel-item">
+          <img
+            src="assets/img/slide3.jpg"
+            class="d-block rounded mx-auto"
+            alt="..."
+          />
+          <div
+            class="carousel-caption d-none d-md-block bg-body-secondary alpha mx-auto p-1 w-50"
+          >
+            <h5>¡Próximamente!</h5>
+            <p>Comparte tu catálogo con otros usuarios registrados.</p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </main>
 
+  <div class="gap-4 d-flex my-2 justify-content-center font flex-wrap">
+    <div class="card my-5 shadow-lg" style="width: 14rem">
+      <img src="../../../assets/img/sSecure.jpeg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">¡Tu colección está segura!</h5>
+        <p class="card-text">
+          Agrega, consulta, modifica y elimina comics de tu colección para que lleves un control de todo tu catálogo físico y digital.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
 
-</main>
+    <div class="card my-5 shadow" style="width: 14rem">
+      <img src="../../../assets/img/sComic.jpeg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">¿No tienes imágenes de tu Comic?</h5>
+        <p class="card-text">
+          No te preocupes, puedes usar una URL donde se encuentre la portada de tu comic y esta será agregada.          
+        </p>
+        <p>Te recomendamos vayas a nuestra página aliada dreamlandcomics.</p>
+        <a href="https://www.dreamlandcomics.com/html/" target="_blank" class="btn btn-primary">Ir a dreamlandcomics</a>
+      </div>
+    </div>
+  </div>
+</div>

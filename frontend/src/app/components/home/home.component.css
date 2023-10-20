@@ -1,17 +1,43 @@
-.slide{
-    margin-top: 10px;
+.slide {
+  margin-top: 10px;
 }
 
-.slide img{
-    height: 70vh;
-    
+.slide img {
+  height: 70vh;
 }
 
-.carousel-inner img {
+/* .carousel-inner img {
     width: 80%;
     max-height: 600px;
 }
 
 .carousel-inner{
  height: 600px;
+} */
+
+.alpha {
+  opacity: 0.8;
+}
+
+.background {
+  background-image: url("../../../assets/img/wpT5.jpg");
+}
+
+.font {
+  font-size: 12px;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel-item > img {
+  @media (max-width: 720px) {
+    width: 100%;
+    object-fit: cover;
+  }
+  /* img { */
+  /* width: 100%;
+    object-fit: cover; */
+  /* } */
 }
