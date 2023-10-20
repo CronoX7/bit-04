@@ -13,6 +13,9 @@ import { TopComponent } from './components/top/top.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddComicComponent } from './components/add-comic/add-comic.component';
+import { CardComicComponent } from './components/card-comic/card-comic.component';
+import { AllComicsComponent } from './components/all-comics/all-comics.component';
+import { FindComicComponent } from './components/find-comic/find-comic.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AddComicComponent } from './components/add-comic/add-comic.component';
     PageNotFoundComponent,
     TopComponent,
     BottomComponent,
-    AddComicComponent
+    AddComicComponent,
+    CardComicComponent,
+    AllComicsComponent,
+    FindComicComponent
   ],
   imports: [
     BrowserModule,

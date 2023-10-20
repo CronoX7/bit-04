@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Comic } from 'src/app/interfaces/schema';
 import { HomeService } from 'src/app/services/home.service';
 
@@ -8,7 +8,6 @@ import { HomeService } from 'src/app/services/home.service';
   styleUrls: ['./comics.component.css']
 })
 export class ComicsComponent implements OnInit{
-  comics: Comic[]=[];
   comicSelected: Comic ={
     pubHouse: "",
     name: "",
@@ -20,35 +19,26 @@ export class ComicsComponent implements OnInit{
     price: 0,
     imgComic: "",
   }
-  showModalEdit = false;
+  @Input ("comicData") comics : Comic[]=[]; 
   constructor (public homeService: HomeService){}
   ngOnInit(): void {
-    this.getAllComics();
+    
   }
 
-  modal(comic:any){
-    this.comicSelected = comic; 
-    this.showModalEdit = true;
+  editModal(comic:any){ //Este método es el que recibe la información del Output hijo
+    this.homeService.selectedComic = JSON.parse(JSON.stringify(comic));
+    console.log(this.homeService.selectedComic);
+    
+    this.homeService.hideButton = false;
   }
 
-  getAllComics(){
-    this.homeService.readAllComic().subscribe(
-      (res:any)=>{
-        console.log('res', res);
-        this.comics=res.allComics;
-        console.log(this.comics);
-      },
-      (err)=>{
-        console.log('err', err);
-      }      
-    );
-  }
-  
+    
   removeComic(id:string | any){
     console.log(id);  
     this.homeService.deleteComic(id).subscribe(
       (res)=>{
-        this.getAllComics();
+        this.comics = this.comics.filter(comic=>comic._id!=id);
+        // this.getAllComics();
       },
       (err) => {
         console.log('err', err);
@@ -60,7 +50,8 @@ export class ComicsComponent implements OnInit{
   updateComic(){
     this.homeService.updateComic(this.homeService.selectedComic).subscribe(
       (res)=>{
-        this.getAllComics();
+        let comicFinded = this.comics.findIndex(comic=> comic._id == this.homeService.selectedComic._id);
+        this.comics[comicFinded] = this.homeService.selectedComic;
       },
       (err) => {
         console.log('err', err);
@@ -68,5 +59,9 @@ export class ComicsComponent implements OnInit{
     )
   }
 
+  deleteComic(event:Comic){
+    console.log(event);
+    this.comicSelected = event;
+  }
 
 }

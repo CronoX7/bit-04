@@ -1,0 +1,20 @@
+<form #comicForm="ngForm" >
+   
+    <div class=" bg-body-secondary w-50 mx-auto p-2 my-5">
+      <label for="idComic" class="form-label">Digite ID o Nombre del Comic</label>
+      <input
+        type="text"
+        class="form-control"
+        id="idComic"
+        name="idComic"
+        [(ngModel)]= "idComic"
+      /> 
+      <button  type="submit" class="btn btn-primary my-2" (click)="findComic()">Buscar</button>
+    </div>
+    <div class=" mx-auto p-2 my-5">
+      
+    </div>
+</form>
+
+<app-comics [comicData]="oneComic"> </app-comics>
+

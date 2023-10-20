@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { HomeService } from "../../services/home.service";
 
@@ -8,13 +8,24 @@ import { HomeService } from "../../services/home.service";
   styleUrls: ['./add-comic.component.css']
 })
 export class AddComicComponent implements OnInit {
-  @Input("comic") comic:any;
   constructor(public homeService: HomeService){}  
+ 
   ngOnInit(): void {
-    if(this.comic){
-      this.homeService.selectedComic=this.comic;
+    this.homeService.selectedComic = {
+      pubHouse: "",
+      name: "",
+      mainCharacter: "",
+      storyArc: "",
+      numPages: 0,
+      cover: "",
+      format: "",
+      price: 0,
+      imgComic: "",
     }
+    this.homeService.hideButton = true;
   }
+
+
   
   //data= {name: ''};
 

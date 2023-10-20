@@ -13,6 +13,7 @@ export class HomeService {
 
   urlBackend ='http://localhost:4000/comics';
   comics: Comic[] = [];
+  hideButton: boolean=true;
   
   selectedComic: Comic ={
     pubHouse: "",
@@ -37,8 +38,9 @@ export class HomeService {
 
   }
 
-  readComics(){
-    return this.http.get<any> (this.urlBackend);
+  readComics(criteria:string){
+    const newUrl = this.urlBackend+"/filter/"+criteria;
+    return this.http.get<any> (newUrl);
   }
   
 

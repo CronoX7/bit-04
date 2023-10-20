@@ -1,0 +1,19 @@
+  "pubHouse": "Acme",
+  "name": "Superman",
+  "mainCharacter": "Clark Kent",
+  "storyArc": "Ultimate",
+  "numPages": 200,
+  "cover": "Soft cover",
+  "format": "Physical",
+  "price": 330000
+
+pubHouse: string, name: string, mainCharacter: string, storyArc: string, numPages: number, cover: string, format: string, price: number
+
+pubHouse: string;
+name: string;
+mainCharacter: string;
+storyArc: string;
+numPages: number;
+cover: string
+format: string;
+price: number;

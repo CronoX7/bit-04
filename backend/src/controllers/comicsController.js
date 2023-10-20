@@ -54,6 +54,20 @@ const ComicsController = {
       response.json({ message: "Fail during read comic!" });
     }
   },
+
+  readComicQuery: async (request, response) => {
+    try {
+      // const comic = await ComicModel.findById(request.params.id);
+      const allComics = await ComicModel.find();
+      
+      const comic = allComics.filter(comic=>comic.name.toLowerCase().includes(request.params.query.toLowerCase()) || comic._id == request.params.query )
+      if (comic) response.json({ comic });
+      else response.json({message: "comic not found."});
+    } catch (error) {
+      console.log(error);
+      response.json({ message: "Fail during read comic!" });
+    }
+  },
   updateComic: async (request, response) => {
     try {
       const comicUpdate = await ComicModel.findByIdAndUpdate(

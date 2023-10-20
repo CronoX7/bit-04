@@ -1,5 +1,5 @@
 
-<main class="container my-5">
+<main class="container my-5 w-50 bg-body-secondary">
     <form #comicForm="ngForm" (ngSubmit)="addComic(comicForm); comicForm.resetForm()">
    
       <div class="mb-3">
@@ -100,7 +100,7 @@
             [(ngModel)]="homeService.selectedComic.imgComic"
           /> 
         </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
+      <button *ngIf="homeService.hideButton" type="submit" class="btn btn-primary">Crear</button>
     </form>
   </main>
 

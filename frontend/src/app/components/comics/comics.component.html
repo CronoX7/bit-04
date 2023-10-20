@@ -2,65 +2,19 @@
 <div class="container d-flex justify-content-center align-top">
   <div class="row">
     <div
-      class="col-sm-6 mr-2 ml-2 d-flex justify-content-center p-3"
+      class="col-sm-4 mr-2 ml-2 d-flex justify-content-center p-3"
       *ngFor="let comic of comics"
     >
-      <div class="card" style="width: 20rem">
-        <img
-          src="{{ comic.imgComic }}"
-          class="card-img-top shadow rounded p-3"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Comic: {{ comic.name }}</h5>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Casa de publicación: {{ comic.pubHouse }}
-          </li>
-          <li class="list-group-item">
-            Personaje Principal: {{ comic.mainCharacter }}
-          </li>
-          <li class="list-group-item">Arco: {{ comic.storyArc }}</li>
-          <li class="list-group-item">
-            Número de páginas: {{ comic.numPages }}
-          </li>
-          <li class="list-group-item">Cover: {{ comic.cover }}</li>
-          <li class="list-group-item">Formato: {{ comic.format }}</li>
-          <li class="list-group-item">Precio:{{ comic.price }}</li>
-        </ul>
-        <div class="card-body">
-          <div class="d-flex gap-4">
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal2"
-              (click)="modal(comic);"
-            >
-              Editar
-            </button>
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-danger "
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              (click)="comicSelected = comic"
-            >
-              Eliminar
-            </button>
-          </div>
-        </div>
-      </div>
+    <!-- Se define en el padre el evento que permite traer información del hijo -->
+    <app-card-comic [comicData]="comic" (onDelete)="deleteComic($event)" (onEdit)="editModal($event)"></app-card-comic>
+
     </div>
   </div>
 </div>
 
 <!-- Modal Edit-->
 <div
-  *ngIf="showModalEdit"
+  
   class="modal fade"
   id="exampleModal2"
   tabindex="-1"
@@ -80,11 +34,11 @@
       </div>
       <div class="modal-body">
         
-        <app-add-comic [comic]="comicSelected" ></app-add-comic>
+        <app-add-comic ></app-add-comic>
         
       </div>
       <div class="modal-footer">
-        <button type="button" (click)="showModalEdit=false" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cancelar
         </button>
         <button
