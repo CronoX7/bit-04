@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./card-comic.component.css']
 })
 export class CardComicComponent {
+  public showButtons= true;
   @Input("comicData") comic: any;
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   @Output() onEdit: EventEmitter<any> = new EventEmitter <any>(); //PASO 1 Se crea el método Output 

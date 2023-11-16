@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-6">
+        <!-- cuando el output de addcomic es disparado, se debe invocar una función dentro del contexto
+        del padre, el atributo $event es obligatorio, en event llega el valor notificado, en esta caso del formulario  -->
+        <app-add-comic (notifyFormChange)="onFormChange($event)"></app-add-comic>
+    </div>
+
+    <div class="col-sm-6 d-flex justify-content-center flex-column align-items-center">
+        <h4>PREVIEW</h4>
+        <app-card-comic #cardComicComponent [comicData]="comicAdded"></app-card-comic>
+    </div>
+
+</div>

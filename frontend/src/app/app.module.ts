@@ -16,6 +16,7 @@ import { AddComicComponent } from './components/add-comic/add-comic.component';
 import { CardComicComponent } from './components/card-comic/card-comic.component';
 import { AllComicsComponent } from './components/all-comics/all-comics.component';
 import { FindComicComponent } from './components/find-comic/find-comic.component';
+import { SaveComicComponent } from './components/save-comic/save-comic.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FindComicComponent } from './components/find-comic/find-comic.component
     AddComicComponent,
     CardComicComponent,
     AllComicsComponent,
-    FindComicComponent
+    FindComicComponent,
+    SaveComicComponent
   ],
   imports: [
     BrowserModule,

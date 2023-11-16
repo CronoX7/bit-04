@@ -7,13 +7,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AddComicComponent } from './components/add-comic/add-comic.component';
 import { AllComicsComponent } from './components/all-comics/all-comics.component';
 import { FindComicComponent } from './components/find-comic/find-comic.component';
+import { SaveComicComponent } from './components/save-comic/save-comic.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'comics', component: AllComicsComponent},
-  {path: 'addComic', component: AddComicComponent},
+  {path: 'addComic', component: SaveComicComponent},
   {path: 'findComic', component: FindComicComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
