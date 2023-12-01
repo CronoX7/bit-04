@@ -17,6 +17,9 @@ import { CardComicComponent } from './components/card-comic/card-comic.component
 import { AllComicsComponent } from './components/all-comics/all-comics.component';
 import { FindComicComponent } from './components/find-comic/find-comic.component';
 import { SaveComicComponent } from './components/save-comic/save-comic.component';
+import { reducerComic } from './store/comics.reducer';
+import { StoreModule } from '@ngrx/store';
+import { FavComicsComponent } from './components/fav-comics/fav-comics.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,15 @@ import { SaveComicComponent } from './components/save-comic/save-comic.component
     CardComicComponent,
     AllComicsComponent,
     FindComicComponent,
-    SaveComicComponent
+    SaveComicComponent,
+    FavComicsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({comicFav:reducerComic})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@ export class Comic{
         this.imgComic=imgComic;       
   
     }
-    _id?:string;
+    _id?:any;
     pubHouse: string;
     name: string;
     mainCharacter: string;

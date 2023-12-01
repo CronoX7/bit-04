@@ -1,49 +1,66 @@
- <div class="card" style="width: 16rem">
-        <img
-          src="{{ comic.imgComic? comic.imgComic: 'https://static.thenounproject.com/png/3674270-200.png' }}"
-          class="card-img-top shadow rounded p-3"
-          alt="..."
-        />
-        <div *ngIf="showButtons" class="d-flex gap-4 p-3 justify-content-end">
-          <button
-            type="button"
-            class="btn btn-primary bi bi-pencil-square"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal2"
-            (click)="onEdit.emit(comic)" title="Editar"
-            >
-            <!-- PASO 3 en el evento click llamo el evento OnEdit que notifica al padre que se le envió información desde el hijo-->
-            
-          </button>
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-danger bi bi-trash3-fill "
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            (click)="onDelete.emit(comic)" title="Eliminar"
-            >
-            
-          </button>
-        </div>
-        <div class="card-body shadow">
-          <h5 class="card-title">Comic: {{ comic.name }}</h5>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            Casa de publicación: {{ comic.pubHouse }}
-          </li>
-          <li class="list-group-item">
-            Personaje Principal: {{ comic.mainCharacter }}
-          </li>
-          <li class="list-group-item">Arco: {{ comic.storyArc }}</li>
-          <li class="list-group-item">
-            Número de páginas: {{ comic.numPages }}
-          </li>
-          <li class="list-group-item">Cover: {{ comic.cover }}</li>
-          <li class="list-group-item">Formato: {{ comic.format }}</li>
-          <li class="list-group-item">Precio:{{ comic.price }}</li>
-        </ul>
-        
-      </div>
+<div class="card" style="width: 16rem">
+  <img
+    src="{{
+      comic.imgComic
+        ? comic.imgComic
+        : 'https://static.thenounproject.com/png/3674270-200.png'
+    }}"
+    class="card-img-top shadow rounded p-3"
+    alt="..."
+  />
+  <div *ngIf="showButtons" class="d-flex gap-4 p-3 justify-content-end">
+    <button
+      type="button"
+      class="btn btn-primary bi bi-pencil-square"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal2"
+      (click)="onEdit.emit(comic)"
+      title="Editar"
+    >
+      <!-- PASO 3 en el evento click llamo el evento OnEdit que notifica al padre que se le envió información desde el hijo-->
+    </button>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-danger bi bi-trash3-fill"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      (click)="onDelete.emit(comic)"
+      title="Eliminar"
+    ></button>
+
+    <button
+      type="button"
+      class="btn btn-warning bi bi-star-fill" title="Agregar a favoritos"
+      (click)="
+        addComic(
+          comic._id,
+          comic.pubHouse,
+          comic.name,
+          comic.img,
+          comic.price,
+          comic.mainCharacter,
+          comic.storyArc,
+          comic.numPages,
+          comic.cover,
+          comic.format
+        )
+      "
+    ></button>
+  </div>
+  <div class="card-body shadow">
+    <h5 class="card-title">Comic: {{ comic.name }}</h5>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Casa de publicación: {{ comic.pubHouse }}</li>
+    <li class="list-group-item">
+      Personaje Principal: {{ comic.mainCharacter }}
+    </li>
+    <li class="list-group-item">Arco: {{ comic.storyArc }}</li>
+    <li class="list-group-item">Número de páginas: {{ comic.numPages }}</li>
+    <li class="list-group-item">Cover: {{ comic.cover }}</li>
+    <li class="list-group-item">Formato: {{ comic.format }}</li>
+    <li class="list-group-item">Precio:{{ comic.price }}</li>
+  </ul>
+</div>

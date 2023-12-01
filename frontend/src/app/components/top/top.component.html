@@ -28,6 +28,23 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/findComic">Buscar comic</a>
           </li>        
+          <li class="nav-item">
+            <div class="btn-group dropend">
+              <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Favoritos
+              </button>
+              <ul class="dropdown-menu">
+                <li *ngFor="let Comic of comic">
+                  {{Comic.name}} <br> {{Comic.pubHouse}} <br> {{Comic.price}} <br> ______________
+                  <button class="btn" (click)="deleteFavComic(Comic._id)">
+                    <span class="material-symbols-outlined" title="Eliminar favorito">
+                      delete
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </li>        
         </ul>
         <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <ng-container *ngIf="loginService.isLogged(); else logged">
