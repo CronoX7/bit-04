@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Comic } from "../interfaces/schema"; 
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,9 @@ import { Comic } from "../interfaces/schema";
 export class HomeService {
 
   constructor(private http: HttpClient) { }
+  private urlBackend = environment.urlBackend
 
 
-  urlBackend ='http://localhost:4000/comics';
   comics: Comic[] = [];
   hideButton: boolean=true;
   
@@ -29,7 +30,7 @@ export class HomeService {
 
   createComic(comic: Comic){
     //console.log(comic);
-    return this.http.post(this.urlBackend, comic);
+    return this.http.post(`${this.urlBackend}`, comic);
   }
 
   
